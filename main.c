@@ -25,31 +25,31 @@ int			main(int argc, char *argv[])
 	i = 1;
 	while (i < element)
 	{
-		dq_add_first(a, ft_atoi(argv[i]));
+		append(a, ft_atoi(argv[i]));
+		//append(b, ft_atoi(argv[i]));
 		i++;
 		a->size++;
 	}
-	i = 1;
-	while (i < element)
-	{
-		dq_add_first(b, ft_atoi(argv[i]));
-		i++;
-		//a->size++;
-	}
 	solve->size = a->size;
 	b->size = a->size;
+	printf("size == %d\n", (int)solve->size);
 	push_swap(solve);
 	//pa(solve);
 	//rq(b);
-	//sq(b);
+	//pb(solve);
+	//pb(solve);
 	//ss(solve);
 	//rq(a);
 	//rrr(solve);
-	// /rrq(a);
+	//rrq(a);
+	i = -1;
+
+	while (++i < (int)solve->size)
+		printf("arr->%d\n", solve->arr[i]);
 	while (!dq_empty(a))
-		printf("a->>%d\n", dq_remove_first(a));
+		printf("a->>%d\n", dq_remove_first(solve->a));
 	while (!dq_empty(b))
-		printf("b->>%d\n", dq_remove_first(b));
+		printf("b->>%d\n", dq_remove_first(solve->b));
 }
 
 void	push_swap(t_solve *solve)
@@ -68,4 +68,5 @@ void	push_swap(t_solve *solve)
 		n = n->next;
 	}
 	heap_sort(solve->arr, solve->a->size);
+
 }

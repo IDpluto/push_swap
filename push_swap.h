@@ -39,6 +39,7 @@ typedef struct s_solve
 
 void dq_init(t_deque *q);
 t_bool dq_empty(t_deque *q);
+void append(t_deque *q, int data);
 void dq_add_first(t_deque *q, int data);
 void dq_add_last(t_deque *q, int data);
 int dq_remove_first(t_deque *q);
@@ -49,6 +50,7 @@ void swap(int *arr, int i, int j);
 void heapify(int *arr, int size, int i);
 void heap_sort(int *arr, int size);
 void	pa(t_solve *sv);
+void	pb(t_solve *sv);
 void	push_swap(t_solve *solve);
 void	sq(t_deque *q);
 void	ss(t_solve *sv);

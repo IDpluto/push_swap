@@ -13,7 +13,21 @@ t_bool dq_empty(t_deque *q)
 	else
 		return (false);
 }
+void append(t_deque *q, int data)
+{
+	t_node *new_node;
+	t_node *new_node2;
 
+	new_node = (t_node*)malloc(sizeof(t_node));
+	new_node->data = data;
+	new_node->prev = q->tail;
+	if (dq_empty(q))
+		q->head = new_node;
+	else
+		q->tail->next = new_node;
+	new_node->next = NULL;
+	q->tail = new_node;
+}
 void dq_add_first(t_deque *q, int data)
 {
 	t_node *new_node;
@@ -94,3 +108,14 @@ int dq_get_last(t_deque *q)
 		exit(-1);
 	return (q->tail->data);
 }
+
+
+
+/*int test(t_deque *q)
+{
+	int last;
+
+	last = dq_remove_first(q);
+	return (last);
+}
+*/
