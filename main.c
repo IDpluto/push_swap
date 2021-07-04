@@ -39,11 +39,13 @@ int			main(int argc, char *argv[])
 	solve->size = a->size;
 	b->size = a->size;
 	push_swap(solve);
-	//sq(a);
+	//pa(solve);
+	//rq(b);
 	//sq(b);
 	//ss(solve);
 	//rq(a);
-	rr(solve);
+	//rrr(solve);
+	// /rrq(a);
 	while (!dq_empty(a))
 		printf("a->>%d\n", dq_remove_first(a));
 	while (!dq_empty(b))

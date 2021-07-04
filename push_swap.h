@@ -54,4 +54,6 @@ void	sq(t_deque *q);
 void	ss(t_solve *sv);
 void	rq(t_deque *q);
 void	rr(t_solve *sv);
+void	rrq(t_deque *q);
+void	rrr(t_solve *sv);
 #endif
