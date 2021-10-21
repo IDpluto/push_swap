@@ -12,89 +12,63 @@
 
 #include "libft.h"
 
-static int			ft_div_count(char const *s, char c)
+static int	word_count(const char *s, char c)
 {
-	int				i;
-	int				count;
-
-	count = 0;
-	if (*s && *s != c)
-		count++;
-	i = 0;
-	while (i < (int)ft_strlen(s))
-	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1])
-			count++;
-		i++;
-	}
-	return (count);
-}
-
-char				*free_s(char **fre)
-{
-	size_t			i;
+	int	i;
+	int	flag;
 
 	i = 0;
-	while (fre[i])
-		free(fre[i++]);
-	free(fre);
-	return (NULL);
-}
-
-static char			*ft_column(char const *s, char c, int i, char **fre)
-{
-	int				j;
-	int				k;
-	int				tmp;
-	char			*n_str;
-
-	j = i;
-	while (s[i] && s[i] != c)
-		i++;
-	tmp = i - j;
-	if (tmp == 0)
-		return (NULL);
-	if (!(n_str = (char *)malloc(sizeof(char) * (tmp + 1))))
+	flag = 0;
+	while (*s)
 	{
-		free_s(fre);
-		return (NULL);
-	}
-	k = 0;
-	while (j != i)
-	{
-		n_str[k] = s[j];
-		k++;
-		j++;
-	}
-	n_str[k] = '\0';
-	return (n_str);
-}
-
-char				**ft_split(char const *s, char c)
-{
-	char			**arr;
-	int				i;
-	int				j;
-	char			*tmp;
-
-	if (!s)
-		return (NULL);
-	if (!(arr = (char **)malloc(sizeof(char *) * (ft_div_count(s, c) + 1))))
-		return (NULL);
-	i = 0;
-	j = 0;
-	if (ft_div_count(s, c))
-		while (i < (int)ft_strlen(s))
+		if (*s != c && flag == 0)
 		{
-			tmp = ft_column(s, c, i, arr);
-			if (tmp && ft_strlen(tmp))
-			{
-				arr[j] = tmp;
-				i += (ft_strlen(arr[j++]) + 1);
-			}
-			else
-				i++;
+			flag = 1;
+			i++;
 		}
-	arr[j] = NULL;
-	return (arr);
+		else if (*s == c)
+			flag = 0;
+		s++;
+	}
+	return (i);
+}
+
+static char	*word_dup(const char *s, int x, int y)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	word = malloc((y - x + 1) * sizeof(char));
+	while (x < y)
+		word[i++] = s[x++];
+	word[i] = '\0';
+	return (word);
+}
+
+char	**ft_split(char *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	int		idx;
+	char	**split;
+
+	i = -1;
+	j = 0;
+	idx = -1;
+	split = malloc((word_count(s, c) + 1) * sizeof(*split));
+	if (!split)
+		return (NULL);
+	while (++i <= ft_strlen(s))
+	{
+		if (s[i] != c && idx < 0)
+			idx = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && idx >= 0)
+		{
+			split[j++] = word_dup(s, idx, i);
+			idx = -1;
+		}
+	}
+	split[j] = NULL;
+	return (split);
 }

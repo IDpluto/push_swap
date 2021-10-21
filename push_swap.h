@@ -1,11 +1,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 #include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft/libft.h"
-#define ERROR -1
-#define MAX_DEQUE_SIZE 5
+#define INT_MIN -2147483648
+#define INT_MAX 2147483648
 
 typedef enum e_bool
 {
@@ -15,47 +13,58 @@ typedef enum e_bool
 
 typedef struct s_node
 {
-	int				data;
+	int				val;
 	struct s_node	*prev;
 	struct s_node	*next;
 }	t_node;
 
-typedef struct s_deque
+
+typedef struct s_stack
 {
 	t_node	*head;
-	t_node *tail;
-	size_t size;
+	size_t	size;
 	char	name;
-}	t_deque;
+}	t_stack;
 
-typedef struct s_solve
+typedef struct s_ps
 {
 	int		*tmp;
 	int		*arr;
 	int		size;
-	t_deque *a;
-	t_deque *b;
-} t_solve;
+	int		dir;
+	int		is_chk;
+	int		min[4];
+	int		move[8];
+	t_stack	*a;
+	t_stack	*b;
+}	t_ps;
 
-void dq_init(t_deque *q);
-t_bool dq_empty(t_deque *q);
-void append(t_deque *q, int data);
-void dq_add_first(t_deque *q, int data);
-void dq_add_last(t_deque *q, int data);
-int dq_remove_first(t_deque *q);
-int dq_remove_last(t_deque *q);
-int dq_get_first(t_deque *q);
-int dq_get_last(t_deque *q);
+void push_swap(t_ps *ps);
 void swap(int *arr, int i, int j);
-void heapify(int *arr, int size, int i);
-void heap_sort(int *arr, int size);
-void	pa(t_solve *sv);
-void	pb(t_solve *sv);
-void	push_swap(t_solve *solve);
-void	sq(t_deque *q);
-void	ss(t_solve *sv);
-void	rq(t_deque *q);
-void	rr(t_solve *sv);
-void	rrq(t_deque *q);
-void	rrr(t_solve *sv);
+void	arr_qsort(int *arr, int l, int r);
+void radix_sort( t_ps *sv,int size);
+void simplified_num(t_ps *sv, int size);
+int	my_atoi(t_ps *sv, const char *str);
+void error_argv(t_ps *sv, char **argv, int argc);
+void	error_exit(t_ps *sv);
+int	free_all(t_ps *sv);
+t_bool stack_empty(t_stack *st);
+t_node	*new_node(t_ps *ps, int val);
+void	append(t_ps *ps, t_stack *st, int val);
+t_node	*pop(t_stack *stack);
+void	push(t_stack *stack, t_node *node);
+void	pa(t_ps *ps);
+void	pb(t_ps *ps);
+void	sx(t_stack *x);
+void	ss(t_ps *ps);
+void	rx(t_stack *x);
+void	rr(t_ps *ps);
+void	rrx(t_stack *x);
+void	rrr(t_ps *ps);
+int a_top(t_stack *st);
+void	check_dup(t_ps *ps);
+void	least_case_sort(t_ps *ps);
+t_bool	check_sorted(t_stack *st);
+
 #endif
+
