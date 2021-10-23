@@ -32,6 +32,7 @@ typedef struct s_ps
 	int		*tmp;
 	int		*arr;
 	int		size;
+	int		is_chk;
 	t_stack	*a;
 	t_stack	*b;
 }	t_ps;

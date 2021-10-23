@@ -21,7 +21,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 libft:
-	make -C libft/
+	make bonus -C libft/
 
 $(%.o): $(%.c)
 	$(CC) -o $@ -c $^
@@ -31,10 +31,10 @@ $(NAME): libft $(OBJS)
 
 clean:
 	rm -f srcs/*.o
-	rm -f gnl/*.o
 	make -C libft/ clean
 
 fclean: clean
+	rm -rf $(NAME)
 	make -C libft/ fclean
 
 re: fclean all
