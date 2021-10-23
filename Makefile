@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: dohlee <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/10/23 17:29:35 by dohlee            #+#    #+#              #
+#    Updated: 2021/10/23 17:29:57 by dohlee           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 .PHONY: libft all clean fclean re
 
 NAME = push_swap
@@ -13,7 +25,7 @@ SRCS =	srcs/push_swap.c \
 		srcs/case_sort.c \
 		srcs/solve.c
 
-GCC_FLAG = -Wall -Werror -Wextra -g -fsanitize=address
+GCC_FLAG = -Wall -Werror -Wextra
 CC = gcc $(GCC_FLAG)
 
 OBJS = $(SRCS:.c=.o)
