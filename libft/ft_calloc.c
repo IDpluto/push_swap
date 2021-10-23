@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/07 21:05:00 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/10 21:07:24 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:15:37 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:15:38 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
+	void	*ret;
 
-	if (!(ptr = malloc(count * size)))
-		return (NULL);
-	ft_bzero(ptr, (count * size));
-	return (ptr);
+	ret = malloc(count * size);
+	if (!ret)
+		return (0);
+	ft_bzero(ret, count * size);
+	return (ret);
 }

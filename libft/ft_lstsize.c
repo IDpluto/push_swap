@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:58:22 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 15:58:27 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:25:24 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:25:25 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	unsigned int size;
+	int	ret;
 
-	size = 0;
+	ret = 0;
 	while (lst)
 	{
 		lst = lst->next;
-		size++;
+		ret++;
 	}
-	return (size);
+	return (ret);
 }

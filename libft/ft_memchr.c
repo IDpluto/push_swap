@@ -5,30 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:18:32 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/07 17:35:04 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:25:49 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:25:50 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*src;
-	unsigned char	c1;
-
-	src = (unsigned char *)s;
-	c1 = (unsigned char)c;
-	i = 0;
-	while (i < n)
+	while (n--)
 	{
-		if (*src == c1)
-		{
-			return (src);
-		}
-		src++;
-		i++;
+		if (*(unsigned char *)s == (unsigned char)c)
+			return ((void *)s);
+		s++;
 	}
-	return (NULL);
+	return (0);
 }

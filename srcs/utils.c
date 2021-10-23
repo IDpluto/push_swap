@@ -1,44 +1,46 @@
 #include "../push_swap.h"
 
-void simplified_num(t_ps *ps, int size)
+int	stack_top(t_stack *st)
 {
-	int i;
-	int j;
-	t_node *n;
+	return (st->head->val);
+}
+
+void	re_arr_malloc(t_ps *ps)
+{
+	int		i;
+	t_node	*n;
 
 	n = ps->a->head;
+	ps->arr = (int *)malloc(sizeof(int) * ps->a->size);
+	if (!ps->arr)
+		error_exit(ps);
 	i = -1;
-	while (++i < size)
+	while (++i < (int)ps->a->size)
 	{
-		j = -1;
-		while (++j < size)
-		{
-			if (ps->tmp[i] == ps->arr[j])
-			{
-				n->val = j;
-				n = n->next;
-				break ;
-			}
-		}
-
+		ps->arr[i] = n ->val;
+		n = n->next;
 	}
 }
 
-void	least_case_sort(t_ps *ps)
+void	error_exit(t_ps *ps)
 {
-	if (ps->a->size == 2
-		|| !(((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0]))
-			|| ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0]))))
-		sx(ps->a);
-	if (ps->a->size == 2)
-		return ;
-	ps->tmp[0] = ps->a->head->val;
-	ps->tmp[1] = ps->a->head->next->val;
-	ps->tmp[2] = ps->a->head->next->next->val;
-	if (ps->a->size != 2
-		&& ((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0])))
-		rx(ps->a);
-	else if (ps->a->size != 2
-		&& ((ps->tmp[1] == ps->arr[2]) && (ps->tmp[2] == ps->arr[0])))
-		rrx(ps->a);
+	ft_putstr_fd("Error\n", 1);
+	free_all(ps);
+	exit(1);
+}
+
+int	free_all(t_ps *ps)
+{
+	while (ps->a->head)
+		free(pop(ps->a));
+	free(ps->a);
+	while (ps->b->head)
+		free(pop(ps->b));
+	free(ps->b);
+	if (ps->arr)
+		free(ps->arr);
+	if (ps->tmp)
+		free(ps->tmp);
+	free(ps);
+	return (0);
 }

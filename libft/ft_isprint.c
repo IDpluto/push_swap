@@ -5,18 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:17:56 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/06 20:25:14 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:23:26 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:23:27 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+int	ft_isprint(int c)
 {
-	if (32 <= c && c <= 126)
-	{
-		return (1);
-	}
-	return (0);
+	return (' ' <= c && c <= '~');
 }

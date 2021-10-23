@@ -5,14 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:17:21 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/06 20:43:21 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:16:12 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:16:13 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int		ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
 	{

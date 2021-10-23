@@ -5,26 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:19:15 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 16:19:06 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:29:10 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:29:11 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t	len;
+	unsigned int	i;
 
-	len = 0;
-	while (*(src + len) && len + 1 < size)
+	if (!dest || !src)
+		return (0);
+	i = 0;
+	while (src[i] && size != 0 && i < size - 1)
 	{
-		*(dest + len) = *(src + len);
-		len++;
+		dest[i] = src[i];
+		i++;
 	}
 	if (size != 0)
-		*(dest + len) = '\0';
-	while (*(src + len))
-		len++;
-	return (len);
+		dest[i] = 0;
+	while (src[i])
+		i++;
+	return (i);
 }

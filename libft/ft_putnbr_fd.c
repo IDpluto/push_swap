@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 19:33:22 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 16:18:06 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:28:03 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:28:04 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)
 		ft_putstr_fd("-2147483648", fd);

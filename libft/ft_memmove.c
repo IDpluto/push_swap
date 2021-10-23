@@ -5,35 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:18:42 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 16:20:48 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:26:54 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:26:55 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			*ft_memmove(void *dest, const void *src, size_t count)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*tmp;
-	const char	*s;
+	void	*ret;
 
-	if (!(dest || src))
-		return (NULL);
-	if (dest <= src)
+	if (!dst && !src)
+		return (0);
+	ret = dst;
+	if (src < dst)
 	{
-		tmp = dest;
-		s = src;
-		while (count--)
-			*tmp++ = *s++;
+		src += len;
+		dst += len;
+		while (len--)
+			*((char *)--dst) = *((char *)--src);
 	}
 	else
-	{
-		tmp = dest;
-		tmp += count;
-		s = src;
-		s += count;
-		while (count--)
-			*--tmp = *--s;
-	}
-	return (dest);
+		while (len--)
+			*((char *)dst++) = *((char *)src++);
+	return (ret);
 }

@@ -34,7 +34,6 @@ void	sx(t_stack *x)
 		ft_putchar_fd('s', 1);
 		ft_putchar_fd(x->name, 1);
 		ft_putchar_fd('\n', 1);
-
 	}
 }
 

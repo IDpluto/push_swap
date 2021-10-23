@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:58:34 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 16:00:47 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:25:12 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:25:13 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*n_l;
 
-	if (!(n_l = malloc(sizeof(t_list))))
+	n_l = malloc(sizeof(t_list));
+	if (!n_l)
 		return (NULL);
 	n_l->content = content;
 	n_l->next = NULL;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:53:34 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 15:53:37 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:24:34 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:24:35 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list *next;
-
-	while (lst)
+	if (lst && f)
 	{
-		next = lst->next;
-		(*f)(lst->content);
-		lst = next;
+		while (lst)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
 	}
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/07 21:11:18 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 16:20:59 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:28:37 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:28:38 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 char	*ft_strdup(const char *s1)
 {
-	char *ptr;
-	char *tmp;
+	char	*ret;
 
-	if (!(ptr = (char*)malloc(sizeof(char) * ft_strlen(s1) + 1)))
+	ret = (char *)malloc(ft_strlen(s1) + 1);
+	if (!ret)
 		return (0);
-	tmp = ptr;
-	while (*s1)
-		*tmp++ = *s1++;
-	*tmp = '\0';
-	return (ptr);
+	ft_memcpy(ret, s1, ft_strlen(s1) + 1);
+	return (ret);
 }

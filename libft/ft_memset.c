@@ -5,22 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:04:23 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 12:38:43 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:27:07 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:27:08 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *ptr, int val, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while (i < len)
-	{
-		((char*)b)[i] = c;
-		i++;
-	}
-	return (b);
+	while (i < n)
+		((char *)ptr)[i++] = val;
+	return (ptr);
 }

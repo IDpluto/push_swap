@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:53:01 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 15:53:20 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:24:05 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:24:06 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst && new)
-	{
-		new->next = *lst;
-		*lst = new;
-	}
+	new->next = *lst;
 	*lst = new;
-	return ;
 }

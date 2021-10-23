@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void error_argv(t_ps *ps, char **argv, int argc)
+void	error_argv(t_ps *ps, char **argv, int argc)
 {
 	int	i;
 
@@ -39,13 +39,6 @@ int	my_atoi(t_ps *ps, const char *str)
 	return (ans * sign);
 }
 
-void	error_exit(t_ps *ps)
-{
-	ft_putstr_fd("Error\n", 1);
-	free_all(ps);
-	exit(1);
-}
-
 void	check_dup(t_ps *ps)
 {
 	int		i;
@@ -71,6 +64,7 @@ t_bool	check_sorted(t_stack *st)
 {
 	t_node	*n;
 	int		tmp;
+
 	n = st->head;
 	if (!n)
 		return (true);
@@ -85,21 +79,3 @@ t_bool	check_sorted(t_stack *st)
 	}
 	return (true);
 }
-
-
-int	free_all(t_ps *ps)
-{
-	while (ps->a->head)
-		free(pop(ps->a));
-	free(ps->a);
-	while (ps->b->head)
-		free(pop(ps->b));
-	free(ps->b);
-	if (ps->arr)
-		free(ps->arr);
-	if (ps->tmp)
-		free(ps->tmp);
-	free(ps);
-	return (0);
-}
-

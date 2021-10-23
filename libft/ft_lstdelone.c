@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:57:15 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 15:57:40 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:24:23 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:24:24 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst)
-		return ;
-	if (del)
+	if (lst && del)
+	{
 		del(lst->content);
-	free(lst);
+		free(lst);
+	}
 }

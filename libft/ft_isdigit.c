@@ -5,18 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:17:47 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/07 14:47:07 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:22:57 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:22:57 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-	if ('0' <= c && c <= '9')
-	{
-		return (1);
-	}
-	return (0);
+	return ('0' <= c && c <= '9');
 }

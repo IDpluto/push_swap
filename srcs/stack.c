@@ -42,11 +42,6 @@ t_node	*pop(t_stack *stack)
 	return (ret);
 }
 
-int		a_top(t_stack *st)
-{
-	return (st->head->val);
-}
-
 void	append(t_ps *ps, t_stack *st, int val)
 {
 	t_node	*node;
@@ -83,7 +78,7 @@ t_node	*new_node(t_ps *ps, int val)
 	return (new);
 }
 
-t_bool stack_empty(t_stack *st)
+t_bool	stack_empty(t_stack *st)
 {
 	if (st->head == NULL)
 		return (true);

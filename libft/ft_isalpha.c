@@ -5,18 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:16:51 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/06 20:16:52 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:22:18 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:22:19 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	if (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'))
-	{
-		return (1);
-	}
-	return (0);
+	return (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'));
 }

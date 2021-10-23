@@ -5,33 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:42:05 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 15:50:28 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:15:02 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:15:03 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#define LLONG_MAX 9223372036854775807
 
-int		ft_atoi(const char *str)
+int	check_llong(unsigned long long ans, int sign)
 {
+	if (sign == -1 && LLONG_MAX <= ans)
+		return (0);
+	if (sign == 1 && LLONG_MAX < ans)
+		return (-1);
+	return (sign * ans);
+}
+
+int	ft_atoi(const char *str)
+{
+	int					sign;
 	unsigned long long	ans;
-	char				sig;
 
 	ans = 0;
-	sig = '+';
-	while (' ' == *str || ('\t' <= *str && *str <= '\r'))
+	sign = 1;
+	while ((9 <= *str && *str <= 13) || *str == ' ')
 		str++;
-	if (*str == '+' || *str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		sig = *str;
+		if (*str == '-')
+			sign *= -1;
 		str++;
 	}
 	while ('0' <= *str && *str <= '9')
-		ans = (ans * 10) + (*str++ - '0');
-	if (ans > 9223372036854775807)
 	{
-		return (sig == '-' ? 0 : -1);
+		ans *= 10;
+		ans += *str - '0';
+		str++;
 	}
-	else
-		return (sig == '-' ? -ans : ans);
+	return (check_llong(ans, sign));
 }

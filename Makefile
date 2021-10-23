@@ -2,20 +2,21 @@
 
 NAME = push_swap
 
-SRCS =	srcs/stack.c \
-		srcs/s.c \
-		srcs/s2.c \
-		srcs/main.c \
+SRCS =	srcs/push_swap.c \
+		srcs/check_arg.c \
+		srcs/op_ps.c \
+		srcs/op_r.c \
 		srcs/radix_sort.c \
 		srcs/q_sort.c \
 		srcs/utils.c \
-		srcs/check_arg.c
+		srcs/stack.c \
+		srcs/case_sort.c \
+		srcs/solve.c
 
 GCC_FLAG = -Wall -Werror -Wextra -g -fsanitize=address
 CC = gcc $(GCC_FLAG)
 
 OBJS = $(SRCS:.c=.o)
-
 
 all: $(NAME)
 
@@ -27,8 +28,6 @@ $(%.o): $(%.c)
 
 $(NAME): libft $(OBJS)
 	$(CC) -o $@ $(OBJS) -Llibft -lft -I./
-
-
 
 clean:
 	rm -f srcs/*.o

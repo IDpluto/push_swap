@@ -5,32 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:19:07 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 16:18:42 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:28:59 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:29:00 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	dest_len;
-	size_t	src_len;
-	int		i;
-	int		count;
+	unsigned int	cnt;
 
-	dest_len = ft_strlen(dest);
-	src_len = ft_strlen(src);
-	if (size < dest_len)
-		return (size + src_len);
-	i = 0;
-	count = (int)(size - dest_len - 1);
-	while (i < count && *(src + i))
+	cnt = 0;
+	while (*(dest + cnt) && cnt < size)
+		cnt++;
+	while (*src && cnt + 1 < size)
 	{
-		dest[dest_len] = src[i];
-		i++;
-		dest_len++;
+		*(dest + cnt) = *src;
+		src++;
+		cnt++;
 	}
-	*(dest + dest_len) = '\0';
-	return (dest_len - i + src_len);
+	if (cnt < size)
+		*(dest + cnt) = 0;
+	while (*src)
+	{
+		src++;
+		cnt++;
+	}
+	return (cnt);
 }

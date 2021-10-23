@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:18:55 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/10 19:51:57 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:28:28 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:28:29 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (1)
+	while (*s != (char)c)
 	{
-		if (*s == c)
-			return ((char *)s);
-		else if (*s++ == '\0')
-			return (NULL);
+		if (*s == 0)
+			return ((char *)0);
+		s++;
 	}
+	return ((char *)s);
 }

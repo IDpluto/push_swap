@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/31 15:57:46 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/31 15:58:14 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:24:53 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:24:54 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
-		return (NULL);
+		return (0);
 	while (lst->next)
 		lst = lst->next;
 	return (lst);

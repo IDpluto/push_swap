@@ -5,50 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 17:55:09 by dohlee            #+#    #+#             */
-/*   Updated: 2020/11/19 20:55:02 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:30:03 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:30:04 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strncpy(char *dst, const char *src, size_t n)
+int	find_set(char c, char const *set)
 {
-	size_t	i;
-
-	i = 0;
-	while (*(src + i) && i < n)
+	while (*set)
 	{
-		*(dst + i) = *(src + i);
-		i++;
+		if (*set == c)
+			return (1);
+		set++;
 	}
-	while (i < n)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
+	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	start;
-	size_t	end;
-	char	*ptr;
+	char	*ret;
+	char	*head;
+	char	*tail;
+	size_t	len;
 
 	if (!s1 || !set)
-		return (NULL);
-	start = 0;
-	while (s1[start] && ft_strchr(set, s1[start]))
-		start++;
-	end = ft_strlen(s1 + start);
-	if (end)
-		while (s1[end + start - 1] != 0 &&
-				ft_strchr(set, s1[end + start - 1]) != 0)
-			end--;
-	if (!(ptr = malloc(sizeof(char) * end + 1)))
-		return (NULL);
-	ft_strncpy(ptr, s1 + start, end);
-	ptr[end] = '\0';
-	return (ptr);
+		return ((char *)s1);
+	head = (char *)s1;
+	tail = (char *)s1 + ft_strlen(s1);
+	while (*head && find_set(*head, set))
+		head++;
+	while (*(tail - 1) && head < tail && find_set(*(tail - 1), set))
+		tail--;
+	len = tail - head + 1;
+	ret = malloc(len);
+	if (!ret)
+		return (0);
+	ft_strlcpy(ret, head, len);
+	return (ret);
 }

@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/06 20:09:37 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/10 19:44:22 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:15:22 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:15:23 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *ptr, size_t num)
 {
-	ft_memset(s, 0, n);
+	while (num--)
+		*((char *)ptr++) = 0;
 }

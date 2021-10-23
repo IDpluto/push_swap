@@ -5,26 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohlee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/09 15:21:23 by dohlee            #+#    #+#             */
-/*   Updated: 2020/10/10 21:08:47 by dohlee           ###   ########.fr       */
+/*   Created: 2021/09/21 18:28:48 by dohlee            #+#    #+#             */
+/*   Updated: 2021/09/21 18:28:49 by dohlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strjoin(char const *s1, char const *s2)
+static int	norm_malloc(char **a, int size)
 {
-	size_t	s1_len;
-	size_t	s2_len;
-	char	*dest;
+	*a = malloc(size);
+	if (*a == 0)
+		return (0);
+	return (1);
+}
 
-	if (!s1 && !s2)
-		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-	if (!(dest = ft_calloc(sizeof(char), s1_len + s2_len + 1)))
-		return (NULL);
-	ft_memcpy(dest, s1, s1_len);
-	ft_memcpy(dest + s1_len, s2, s2_len);
-	return (dest);
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*ret;
+	size_t	len;
+
+	if (!s1 || !s2)
+		return (0);
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!norm_malloc(&ret, len))
+		return (0);
+	ft_strlcpy(ret, s1, len);
+	ft_strlcat(ret, s2, len);
+	return (ret);
 }

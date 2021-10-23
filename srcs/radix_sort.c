@@ -1,12 +1,12 @@
 #include "../push_swap.h"
 
-void radix_sort(t_ps *ps, int size)
+void	radix_sort(t_ps *ps, int size)
 {
-	int max_num;
-	int max_bits;
-	int num;
-	int i;
-	int j;
+	int	max_num;
+	int	max_bits;
+	int	num;
+	int	i;
+	int	j;
 
 	max_num = size;
 	max_bits = 0;
@@ -15,11 +15,11 @@ void radix_sort(t_ps *ps, int size)
 	i = -1;
 	while (++i < max_bits)
 	{
-		j  = -1;
+		j = -1;
 		while (++j < size)
 		{
-			num = a_top(ps->a);
-			if (((num >> i) & 0x00000001) == 1)
+			num = stack_top(ps->a);
+			if (((num >> i) & 0x01) == 1)
 				rx(ps->a);
 			else
 				pb(ps);
@@ -28,5 +28,3 @@ void radix_sort(t_ps *ps, int size)
 			pa(ps);
 	}
 }
-// ra, pb, pa
-
