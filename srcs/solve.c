@@ -12,21 +12,7 @@
 
 #include "../push_swap.h"
 
-void	solve(t_ps *ps)
-{
-	arr_qsort(ps->arr, 0, ps->size - 1);
-	if (ps->size <= 3)
-		least_case_sort(ps);
-	else if (ps->size <= 5)
-		five_case_sort(ps);
-	else
-	{
-		simplified_num(ps, ps->size);
-		radix_sort(ps, ps->size);
-	}
-}
-
-void	simplified_num(t_ps *ps, int size)
+static void	simplified_num(t_ps *ps, int size)
 {
 	int		i;
 	int		j;
@@ -46,5 +32,19 @@ void	simplified_num(t_ps *ps, int size)
 				break ;
 			}
 		}
+	}
+}
+
+void	solve(t_ps *ps)
+{
+	arr_qsort(ps->arr, 0, ps->size - 1);
+	if (ps->size <= 3)
+		least_case_sort(ps);
+	else if (ps->size <= 5)
+		five_case_sort(ps);
+	else
+	{
+		simplified_num(ps, ps->size);
+		radix_sort(ps, ps->size);
 	}
 }

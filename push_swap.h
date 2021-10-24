@@ -50,10 +50,8 @@ typedef struct s_ps
 }	t_ps;
 
 void	push_swap(t_ps *ps);
-void	swap(int *arr, int i, int j);
 void	arr_qsort(int *arr, int l, int r);
 void	radix_sort(t_ps *sv, int size);
-void	simplified_num(t_ps *sv, int size);
 int		my_atoi(t_ps *sv, const char *str);
 void	error_argv(t_ps *sv, char **argv, int argc);
 void	error_exit(t_ps *sv);
@@ -75,9 +73,7 @@ int		stack_top(t_stack *st);
 void	check_dup(t_ps *ps);
 void	least_case_sort(t_ps *ps);
 void	five_case_sort(t_ps *ps);
-void	two_case_sort_b(t_ps *ps);
 t_bool	check_sorted(t_stack *st);
-void	re_arr_malloc(t_ps *ps);
 void	solve(t_ps *ps);
 void	three_case_sort(t_ps *ps);
 #endif

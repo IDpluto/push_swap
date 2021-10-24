@@ -17,23 +17,6 @@ int	stack_top(t_stack *st)
 	return (st->head->val);
 }
 
-void	re_arr_malloc(t_ps *ps)
-{
-	int		i;
-	t_node	*n;
-
-	ps->arr = (int *)malloc(sizeof(int) * ps->a->size);
-	if (!ps->arr)
-		error_exit(ps);
-	n = ps->a->head;
-	i = -1;
-	while (++i < (int)ps->a->size)
-	{
-		ps->arr[i] = n->val;
-		n = n->next;
-	}
-}
-
 void	error_exit(t_ps *ps)
 {
 	ft_putstr_fd("Error\n", 2);

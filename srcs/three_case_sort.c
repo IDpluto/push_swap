@@ -29,8 +29,8 @@ void	three_case_sort(t_ps *ps)
 	int	min;
 	int	max;
 
-	min = ps->arr[0];
-	max = ps->arr[2];
+	min = ps->arr[2];
+	max = ps->arr[4];
 	if (ps->a->head->val == min)
 		top_min_a(ps, max);
 	else if (ps->a->head->next->val == min)
