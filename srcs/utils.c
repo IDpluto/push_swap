@@ -22,21 +22,21 @@ void	re_arr_malloc(t_ps *ps)
 	int		i;
 	t_node	*n;
 
-	n = ps->a->head;
 	ps->arr = (int *)malloc(sizeof(int) * ps->a->size);
 	if (!ps->arr)
 		error_exit(ps);
+	n = ps->a->head;
 	i = -1;
 	while (++i < (int)ps->a->size)
 	{
-		ps->arr[i] = n ->val;
+		ps->arr[i] = n->val;
 		n = n->next;
 	}
 }
 
 void	error_exit(t_ps *ps)
 {
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", 2);
 	free_all(ps);
 	exit(1);
 }

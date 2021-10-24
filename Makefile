@@ -23,7 +23,8 @@ SRCS =	srcs/push_swap.c \
 		srcs/utils.c \
 		srcs/stack.c \
 		srcs/case_sort.c \
-		srcs/solve.c
+		srcs/solve.c \
+		srcs/three_case_sort.c
 
 GCC_FLAG = -Wall -Werror -Wextra
 CC = gcc $(GCC_FLAG)

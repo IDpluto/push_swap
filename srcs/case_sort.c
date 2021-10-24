@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	three_case_sort(t_ps *ps)
+void	least_case_sort(t_ps *ps)
 {
 	if (ps->a->size == 2
 		|| !(((ps->tmp[0] == ps->arr[2]) && (ps->tmp[1] == ps->arr[0]))
@@ -31,7 +31,7 @@ void	three_case_sort(t_ps *ps)
 		rrx(ps->a);
 }
 
-void	two_case_sort(t_ps *ps)
+void	two_case_sort_b(t_ps *ps)
 {
 	if (ps->b->head->val < ps->b->head->next->val)
 		sx(ps->b);
@@ -62,5 +62,5 @@ void	five_case_sort(t_ps *ps)
 	re_arr_malloc(ps);
 	arr_qsort(ps->arr, 0, ps->a->size - 1);
 	three_case_sort(ps);
-	two_case_sort(ps);
+	two_case_sort_b(ps);
 }

@@ -16,7 +16,7 @@ void	solve(t_ps *ps)
 {
 	arr_qsort(ps->arr, 0, ps->size - 1);
 	if (ps->size <= 3)
-		three_case_sort(ps);
+		least_case_sort(ps);
 	else if (ps->size <= 5)
 		five_case_sort(ps);
 	else

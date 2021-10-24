@@ -73,10 +73,11 @@ void	rrx(t_stack *x);
 void	rrr(t_ps *ps);
 int		stack_top(t_stack *st);
 void	check_dup(t_ps *ps);
-void	three_case_sort(t_ps *ps);
+void	least_case_sort(t_ps *ps);
 void	five_case_sort(t_ps *ps);
-void	two_case_sort(t_ps *ps);
+void	two_case_sort_b(t_ps *ps);
 t_bool	check_sorted(t_stack *st);
 void	re_arr_malloc(t_ps *ps);
 void	solve(t_ps *ps);
+void	three_case_sort(t_ps *ps);
 #endif
